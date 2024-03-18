@@ -50,7 +50,7 @@ app.post('/auth', validateFormFields, (req, res) => {
 
 
     const { usuario, senha } = req.body;
-    if (usuarios[usuario] === senha) {
+    if (usuarios[usuario] === senha) {  //verifica se a combinação usuário/senha fornecida pelo cliente está correta ao objeto usuarios
         res.cookie('usuario', usuario); // Cria um cookie para armazenar o usuário
         res.redirect('/pagina_usuario');
     } else {
@@ -79,8 +79,8 @@ app.get('/logout', (req, res) => {
 
 // Rota para exibir informações do usuário
 app.get('/informacoes_usuario', (req, res) => {
-    const usuario = req.cookies.usuario;
-    const senha = usuarios[usuario]; // Obtendo a senha do usuário
+    const usuario = req.cookies.usuario; //extrai o valor do cookie chamado usuario
+    const senha = usuarios[usuario]; // Obtendo a senha do usuário, Usa o valor do usuário obtido do cookie para procurar no objeto usuarios a senha correspondente ao usuário.
     if (usuario && senha) {
         res.render('informacoes_usuario', { usuario, senha });
     } else {
