@@ -34,7 +34,7 @@ app.get('/', (req, res) => {
 });
 
 
-// Middleware para validação dos campos do formulário
+// Middleware array contendo as validação dos campos do formulário
 const validateFormFields = [
     check('usuario').notEmpty().withMessage('Usuário é obrigatório'),
     check('senha').notEmpty().withMessage('Senha é obrigatória')
@@ -42,9 +42,9 @@ const validateFormFields = [
 
 
 // Rota para autenticar o usuário
-app.post('/auth', validateFormFields, (req, res) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
+app.post('/auth', validateFormFields, (req, res) => { 
+    const errors = validationResult(req); 
+    if (!errors.isEmpty()) { //Se errors não estiver vazio, significa que houve falha na validação.
         return res.status(400).send(errors.array()[0].msg);
     }
 
@@ -61,8 +61,8 @@ app.post('/auth', validateFormFields, (req, res) => {
 
 // Rota para página de usuarios
 app.get('/pagina_usuario', (req, res) => {
-    const usuario = req.cookies.usuario;
-    if (usuario) {
+    const usuario = req.cookies.usuario; //extrai o valor do cookie chamado 'usuario' da requisição
+    if (usuario) { // verifica se o cookie 'usuario' está definido. 
         res.render('pagina_usuario', { usuario });
     } else {
         res.redirect('/');
