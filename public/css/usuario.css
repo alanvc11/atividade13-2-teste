@@ -1,0 +1,48 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+
+p {
+    text-align: center;
+    color: #666;
+    margin-top: 20px;
+}
+
+
+button {
+    display: block;
+    margin: 5px auto;
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+button a {
+    color: #fff;
+    text-decoration: none;
+}
+
+
+button:hover {
+    background-color: #45a049;
+}
+a.center-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px; /* Espaçamento adicional acima do link */
+}
